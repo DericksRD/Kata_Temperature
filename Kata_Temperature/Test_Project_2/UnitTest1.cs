@@ -51,5 +51,89 @@ namespace Test_Project_2
 
             Assert.AreEqual(-61, result);
         }
+
+        [Test]
+        public void KelvinToFarenheitWith212()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 212,
+                Scale = Scale.Kelvin
+            };
+            
+            var convertor = new Convertion();
+            int result = convertor.ToFarenheit(temperature);
+
+            Assert.AreEqual(-78, result);
+        }
+
+        [Test]
+        public void CelsiusToFarenheitWith38()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 38,
+                Scale = Scale.Celsius
+            };
+            
+            var convertor = new Convertion();
+            int result = convertor.ToFarenheit(temperature);
+
+            Assert.AreEqual(100, result);
+        }
+
+        [Test]
+        public void FarenheitToFarenheitWith38()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 38,
+                Scale = Scale.Farenheit
+            };
+            
+            var convertor = new Convertion();
+            int result = convertor.ToFarenheit(temperature);
+
+            Assert.AreEqual(38, result);
+        }
+
+        [Test]
+        public void FarenheitToKelvinWith38()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 38,
+                Scale = Scale.Farenheit
+            };
+            
+            var convertor = new Convertion();
+            int result = convertor.ToKelvin(temperature);
+
+            Assert.AreEqual(276, result);
+        }
+
+        [Test]
+        public void CelsiusToKelvinWith38()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 38,
+                Scale = Scale.Celsius
+            };
+            
+            var convertor = new Convertion();
+            int result = convertor.ToKelvin(temperature);
+
+            Assert.AreEqual(311, result);
+        }
+
+        [Test]
+        public void KelvinToKelvinWith38()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 38,
+                Scale = Scale.Kelvin
+            };
+            
+            var convertor = new Convertion();
+            int result = convertor.ToKelvin(temperature);
+
+            Assert.AreEqual(38, result);
+        }
     }
 }
