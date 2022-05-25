@@ -135,5 +135,73 @@ namespace Test_Project_2
 
             Assert.AreEqual(38, result);
         }
+
+        [Test]
+        public void CelsiusAndKelvinAddition()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 27,
+                Scale = Scale.Celsius
+            };
+
+            TemperatureOperations secondTemperature = new TemperatureOperations(){
+                Value = 38,
+                Scale = Scale.Kelvin
+            };
+
+            int result = temperature.Add(secondTemperature);
+            Assert.AreEqual(-208, result);
+        }
+
+        [Test]
+        public void CelsiusAndFarenheitSubstraction()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 78,
+                Scale = Scale.Farenheit
+            };
+
+            TemperatureOperations secondTemperature = new TemperatureOperations(){
+                Value = 27,
+                Scale = Scale.Celsius
+            };
+
+            int result = temperature.Substraction(secondTemperature);
+            Assert.AreEqual(-2, result);
+        }
+
+        [Test]
+        public void CelsiusAndCelsiusMultiplication()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 78,
+                Scale = Scale.Celsius
+            };
+
+            TemperatureOperations secondTemperature = new TemperatureOperations(){
+                Value = 27,
+                Scale = Scale.Celsius
+            };
+
+            int result = temperature.Multiplication(secondTemperature);
+            Assert.AreEqual(2106, result);
+        }
+
+        [Test]
+        public void FarenheitAndKelvinDivision()
+        {
+            TemperatureOperations temperature = new TemperatureOperations(){
+                Value = 78,
+                Scale = Scale.Farenheit
+            };
+
+            TemperatureOperations secondTemperature = new TemperatureOperations(){
+                Value = 15,
+                Scale = Scale.Kelvin
+            };
+
+            double result = temperature.Division(secondTemperature);
+            Assert.AreEqual(0.2, result);
+        }
     }
 }

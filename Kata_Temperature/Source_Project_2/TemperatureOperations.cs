@@ -1,4 +1,6 @@
+using System;
 using System.Reflection.Emit;
+
 namespace Source_Project_2
 {
     public enum Scale
@@ -12,6 +14,54 @@ namespace Source_Project_2
     {
         public float Value {get; set;}
         public Scale Scale {get; set;}
+
+        public int ScaleConvertion(Scale myScale, TemperatureOperations operations)
+        {
+            int convertion = 0;
+
+            var convertor = new Convertion();
+            switch((int)Scale)
+            {
+                case 1:
+                    convertion = convertor.ToCelsius(operations);
+                    break;
+                case 2:
+                    convertion = convertor.ToFarenheit(operations);
+                    break;
+                case 3:
+                    convertion = convertor.ToKelvin(operations);
+                    break;
+            }
+
+            return convertion;
+        }
+        public int Add(TemperatureOperations operations)
+        {
+            int addition = ScaleConvertion(Scale, operations);
+
+            return (int)Value + addition;
+        }
+
+        public int Substraction(TemperatureOperations operations)
+        {
+            int sub = ScaleConvertion(Scale, operations);
+
+            return (int)Value - sub;
+        }
+
+        public int Multiplication(TemperatureOperations operations)
+        {
+            int multiply = ScaleConvertion(Scale, operations);
+
+            return (int)Value * multiply;
+        }
+
+        public double Division(TemperatureOperations operations)
+        {
+            int div = ScaleConvertion(Scale, operations);
+
+            return Math.Round(Value / div, MidpointRounding.AwayFromZero);
+        }
     }
 
     public class Convertion
@@ -50,7 +100,7 @@ namespace Source_Project_2
                 float celsiusReturn = operations.Value + 273.15f;
                 return (int)celsiusReturn;
             }
-            
+
             //Farenheit
             float result = (((operations.Value - 32) * 5) / 9) + 273.15f;
             return (int)result;
