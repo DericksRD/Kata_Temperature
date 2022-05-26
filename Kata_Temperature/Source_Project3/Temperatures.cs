@@ -8,12 +8,28 @@ namespace Source_Project3
         {
             if(operations.Scale == Scales.Farenheit)
                 return operations.Value;
-                
+
             if(operations.Scale == Scales.Kelvin)
                 operations.Value -= 273.25f;
 
-            double result = (((operations.Value * 9) / 5) + 32);
+            float result = (((operations.Value * 9) / 5) + 32);
 
+            return Math.Round(result, 1, MidpointRounding.ToEven);
+        }
+
+        public double ToKelvin(Operations operations)
+        {
+            if(operations.Scale == Scales.Kelvin)
+                return operations.Value;
+
+            if(operations.Scale == Scales.Celsius)
+            {
+                float convertion = operations.Value + 273.15f;
+                return Math.Round(convertion, 1, MidpointRounding.ToEven);
+            }
+
+            //Farenheit to Kelvin:
+            float result = (((operations.Value - 32) * 5)  / 9) + 273.15f;
             return Math.Round(result, 1, MidpointRounding.ToEven);
         }
     }
