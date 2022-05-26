@@ -5,15 +5,49 @@ namespace Test_Project3
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void KelvinToFareheitWith255()
         {
+            Operations objectOperations = new Operations()
+            {
+                Value = 255,
+                Scale = Scales.Kelvin
+            };
+
+            Temperature temperatureConvertor =  new Temperature();
+            double result = temperatureConvertor.ToFarenheit(objectOperations);
+
+            Assert.AreEqual(-0.8,  result);
         }
 
         [Test]
-        public void Test1()
+        public void CelsiusToFareheitWith255()
         {
-            Assert.Pass();
+            Operations objectOperations = new Operations()
+            {
+                Value = 255,
+                Scale = Scales.Celsius
+            };
+
+            Temperature temperatureConvertor =  new Temperature();
+            double result = temperatureConvertor.ToFarenheit(objectOperations);
+
+            Assert.AreEqual(491,  result);
+        }
+
+        [Test]
+        public void FarenheitToFareheitWith75()
+        {
+            Operations objectOperations = new Operations()
+            {
+                Value = 75,
+                Scale = Scales.Farenheit
+            };
+
+            Temperature temperatureConvertor =  new Temperature();
+            double result = temperatureConvertor.ToFarenheit(objectOperations);
+
+            Assert.AreEqual(75,  result);
         }
     }
 }

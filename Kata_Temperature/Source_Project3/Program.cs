@@ -9,9 +9,4 @@ namespace Source_Project3
             Console.WriteLine("Hello World!");
         }
     }
-
-    public class Example
-    {
-
-    }
 }
