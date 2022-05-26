@@ -32,6 +32,21 @@ namespace Source_Project3
             float result = (((operations.Value - 32) * 5)  / 9) + 273.15f;
             return Math.Round(result, 1, MidpointRounding.ToEven);
         }
+
+        public double ToCelsius(Operations operations)
+        {
+            if(operations.Scale == Scales.Celsius)
+                return operations.Value;
+
+            if(operations.Scale == Scales.Kelvin)
+            {
+                float Convertion = operations.Value - 273.15f;
+                return Math.Round(Convertion, 1, MidpointRounding.ToEven);
+            }
+            
+            float result = ((operations.Value - 32) * 5) / 9;
+            return Math.Round(result, 1, MidpointRounding.ToEven);
+        }
     }
 
 }

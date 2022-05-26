@@ -95,5 +95,50 @@ namespace Test_Project3
 
             Assert.AreEqual(269.8,  result);
         }
+
+        [Test]
+        public void CelsiusToCelsiusWit26()
+        {
+            Operations objectOperations = new Operations()
+            {
+                Value = 26,
+                Scale = Scales.Celsius
+            };
+
+            Temperature temperatureConvertor =  new Temperature();
+            double result = temperatureConvertor.ToCelsius(objectOperations);
+
+            Assert.AreEqual(26,  result);
+        }
+
+        [Test]
+        public void FarehenheitToCelsiusWit74()
+        {
+            Operations objectOperations = new Operations()
+            {
+                Value = 74,
+                Scale = Scales.Farenheit
+            };
+
+            Temperature temperatureConvertor =  new Temperature();
+            double result = temperatureConvertor.ToCelsius(objectOperations);
+
+            Assert.AreEqual(23.3,  result);
+        }
+
+        [Test]
+        public void KelvinToCelsiusWit300()
+        {
+            Operations objectOperations = new Operations()
+            {
+                Value = 300,
+                Scale = Scales.Kelvin
+            };
+
+            Temperature temperatureConvertor =  new Temperature();
+            double result = temperatureConvertor.ToCelsius(objectOperations);
+
+            Assert.AreEqual(26.9, result);
+        }
     }
 }
